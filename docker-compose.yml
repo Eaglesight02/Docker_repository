@@ -1,0 +1,13 @@
+services:
+  myfastapi:
+    build: 
+      # we are using the dockerfile that we created to create the container.
+      dockerfile: dockerfile-fastapi
+
+    # We are using ports 8000 both on host and on the container.
+    ports:
+      - "8000:8000"
+
+    # Mounting our Current Working Directory to the container.
+    volumes:
+      - ".:${CWD:-/code}"
